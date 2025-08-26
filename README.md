@@ -1,81 +1,93 @@
-# Google Summer of Code 2025: Enhancing Contributor Insights in 8knot
+# Google Summer of Code 2025 – Final Report
 
-## Introduction
-
-This summer, I had the incredible opportunity to work with the CHAOSS project as a Google Summer of Code (GSoC) 2025 contributor. My project focused on improving contributor insights in **8knot**, a tool used for visualizing software community health metrics. The main goal was to create **two impactful visualizations** that help open source maintainers better understand contributor engagement and drop-offs.
+**Co-authored by:**  
+- [Akshat Baranwal](https://github.com/AkshatBaranwal)  
+- [Ashish Kumar](https://github.com/officialasishkumar)  
 
 ---
 
 ## Project Overview
 
-The project centered on implementing:
+Our project for Google Summer of Code 2025 aimed to **enhance CHAOSS 8Knot with two new visualizations designed to better analyze and understand contributor behavior and retention** within open source projects. Contributor retention and onboarding are crucial aspects of the open source ecosystem, as projects thrive when they can both attract new contributors and keep them engaged over time.
 
-1. **Funnel Chart** – to visualize contributor progression across various engagement levels and highlight drop-offs at each stage.
-2. **Radar Chart** – to display contributors' activities across multiple dimensions (e.g., commenting, reviewing, committing, issue management) in a single comparative view.
-
-Both visualizations aim to make it easier for project maintainers and community managers to quickly assess the state of their contributor pipeline and retention.
-
----
-
-## Visualizations
-
-### 1. Funnel Chart
-
-- **Purpose:** Visualizes the number of contributors at different stages of their engagement journey, from initial interactions to active contributions.
-- **Levels Include:**
-  - New Contributors
-  - First-Time Issue Closers
-  - First-Time Pull Request Mergers
-  - Consistent Contributors
-  - Core/Active Maintainers
-- **Drop-offs:** Shows where contributors disengage, helping maintainers focus on retention.
-
-### 2. Radar Chart
-
-- **Purpose:** Provides a multi-dimensional view of contributor activities.
-- **Dimensions Include:**
-  - Pull Requests Created
-  - Issues Closed
-  - Code Reviews Performed
-  - Comments Made
-  - Commits Merged
-- **Benefit:** Enables quick comparisons of activity types and identifies areas needing more engagement.
+The focus of our project was on building **actionable, insightful, and visually intuitive tools** to help open source maintainers identify:
+1. **How contributors move through different stages of involvement** (from first-time contributors to long-term maintainers).
+2. **Where drop-offs occur in the contribution journey** and what factors might influence them.
+3. **Which activities contributors are participating in most frequently** (e.g., code commits, issue discussions, PR reviews).
 
 ---
 
-## Technical Implementation
+## The Visualizations We Built
 
-- Built as part of the **8knot frontend**.
-- Data sourced from **CHAOSS Augur APIs**.
-- Implemented using modern JavaScript/TypeScript and integrated with the existing visualization framework.
-- Focused on modularity for future expansion.
+### 1. Funnel Chart – Contributors and Drop-offs
+
+The funnel chart visualizes the **different stages of contributor engagement** in a project. It is divided into two complementary sections:
+
+- **Contributors Funnel:** Displays the number of contributors at each stage of involvement:
+  - **Newcomers:** Contributors who recently made their first activity (e.g., commenting, opening an issue, or making a PR).
+  - **Regular Contributors:** Those who consistently participate over a period of time.
+  - **Frequent Contributors:** Members with sustained contributions (PRs, commits, code reviews).
+  - **Core Maintainers:** Contributors who take on significant roles in managing the project.
+
+- **Drop-offs Funnel:** Highlights where contributors tend to **disengage or stop contributing** along their journey. This helps maintainers identify bottlenecks in onboarding or engagement processes.
+
+The funnel chart thus provides a **clear, stage-wise representation of contributor flow**, enabling community managers to target specific levels for improvement.
 
 ---
 
-## Outcomes & Learnings
+### 2. Radar Chart – Contributor Activities Breakdown
 
-- Delivered two ready-to-use visualizations that integrate seamlessly with the 8knot ecosystem.
-- Gained deep insights into open source contributor behavior and retention dynamics.
-- Enhanced my skills in **data visualization**, **API integration**, and **open source collaboration**.
+The radar chart displays the **distribution of contributor activities** across different categories, giving a multi-dimensional view of how contributors interact with the project. Categories include:
+
+- **Pull Requests Created**
+- **Pull Requests Reviewed**
+- **Issues Opened**
+- **Issues Closed**
+- **Comments on PRs and Issues**
+- **Code Commits**
+
+Each axis of the radar chart corresponds to one type of activity, and the data plotted shows **which areas contributors are most involved in and which are lacking attention**. This visualization helps project maintainers balance participation and spot underrepresented activities.
+
+---
+
+## Key Outcomes
+
+- Developed **two interactive visualizations (Funnel & Radar) integrated into 8Knot**, making it easier to analyze contributor engagement patterns.
+- Enhanced the **decision-making ability of project maintainers** by identifying drop-off points and activity imbalances.
+- Improved **onboarding strategy insights** by showcasing how newcomers transition (or fail to transition) into regular contributors.
+
+---
+
+## Challenges Faced
+
+- Ensuring **data accuracy and consistency** across different repositories with varying activity structures.
+- Designing **visualizations that were both intuitive and detailed**, balancing aesthetics with data density.
+- Coordinating efforts as two GSoC contributors working on similar parts of the same project.
 
 ---
 
 ## Acknowledgments
 
-I would like to express my sincere gratitude to the CHAOSS community, mentors, and my co-contributor **[Asish Kumar](https://github.com/officialasishkumar)** for their continuous support and collaboration throughout this project.
+We would like to thank:
+- **Mentors and the CHAOSS community** for their guidance and feedback.
+- Google Summer of Code for providing this platform.
+- Everyone who tested, reviewed, and provided insights during the project.
 
-**Co-authored-by**: **[Asish Kumar](https://github.com/officialasishkumar)**
+---
+
+## Co-Authors
+
+- [Akshat Baranwal](https://github.com/AkshatBaranwal)  
+- [Ashish Kumar](https://github.com/officialasishkumar)  
 
 ---
 
 ## Links
 
-- **Pull Request:** [Link to PR once merged]
-- **Project Proposal:** [Link to your GSoC proposal]
-- **8knot Repository:** [https://github.com/chaoss/8knot](https://github.com/chaoss/8knot)
+- **Project Repository:** [CHAOSS 8Knot](https://github.com/chaoss/8knot)
+- **Pull Requests:** (Add your PR links here)
+- **GSoC Organization:** [CHAOSS](https://chaoss.community/)
 
 ---
 
-## Final Thoughts
-
-This GSoC journey has been immensely rewarding, giving me the opportunity to contribute meaningfully to open source and collaborate with a vibrant community. I am excited to see how these visualizations help maintainers nurture healthier and more sustainable open source ecosystems.
+*This blog serves as the final submission for our Google Summer of Code 2025 project.*
