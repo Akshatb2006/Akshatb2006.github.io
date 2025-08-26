@@ -84,8 +84,8 @@ We would like to thank:
 
 ## Links
 
-- **Project Repository:** [CHAOSS 8Knot](https://github.com/chaoss/8knot)
-- **Pull Requests:** (Add your PR links here)
+- **Project Repository:** [CHAOSS 8Knot](https://github.com/chaoss/8knot), [CHAOSS AUGUR](https://github.com/chaoss/augur)
+- **Pull Requests:** [Augur](https://github.com/chaoss/augur/pull/3213), [8kNOT](https://github.com/oss-aspen/8Knot/pull/914)
 - **GSoC Organization:** [CHAOSS](https://chaoss.community/)
 
 ---
