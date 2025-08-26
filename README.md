@@ -2,7 +2,7 @@
 
 **Co-authored by:**  
 - [Akshat Baranwal](https://github.com/AkshatBaranwal)  
-- [Ashish Kumar](https://github.com/officialasishkumar)  
+- [Asish Kumar](https://github.com/officialasishkumar)  
 
 ---
 
@@ -125,7 +125,7 @@ We would like to thank:
 ## Co-Authors
 
 - [Akshat Baranwal](https://github.com/AkshatBaranwal)  
-- [Ashish Kumar](https://github.com/officialasishkumar)  
+- [Asish Kumar](https://github.com/officialasishkumar)  
 
 ---
 
