@@ -132,7 +132,7 @@ We would like to thank:
 ## Links
 
 - **Project Repositories:**  
-  - [CHAOSS 8Knot](https://github.com/chaoss/8knot)  
+  - [CHAOSS 8Knot](https://github.com/oss-aspen/8Knot)  
   - [CHAOSS Augur](https://github.com/chaoss/augur)  
 
 - **Pull Requests:**  
