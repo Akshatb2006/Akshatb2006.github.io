@@ -74,6 +74,12 @@ Levels used:
 
 This visualization allows maintainers to **pinpoint retention bottlenecks and improve contributor flow**.
 
+
+
+<img width="735" height="714" alt="Screenshot from 2025-08-26 14-25-53" src="https://github.com/user-attachments/assets/601d9038-06b4-4934-86be-4b4b0d41e8e7" />
+<img width="736" height="597" alt="Screenshot from 2025-08-26 14-26-15" src="https://github.com/user-attachments/assets/4c1a1184-6d86-4569-874a-8c7caa4116a6" />
+
+
 ---
 
 ### 2. Radar Chart – Contributor Activities Breakdown
@@ -87,6 +93,7 @@ The radar chart shows the **distribution of contributor activities** across mult
 
 This multi-axis chart helps identify **which contribution types dominate participation** and where there is room for growth.
 
+<img width="734" height="690" alt="Screenshot from 2025-08-26 14-24-55" src="https://github.com/user-attachments/assets/0ac8d66c-721c-403c-b552-63503e25f8c7" />
 ---
 
 ## Key Outcomes
