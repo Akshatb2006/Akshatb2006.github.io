@@ -8,12 +8,53 @@
 
 ## Project Overview
 
-Our project for Google Summer of Code 2025 aimed to **enhance CHAOSS 8Knot with two new visualizations designed to better analyze and understand contributor behavior and retention** within open source projects. Contributor retention and onboarding are crucial aspects of the open source ecosystem, as projects thrive when they can both attract new contributors and keep them engaged over time.
+Our project for **Google Summer of Code 2025** focused on enhancing **CHAOSS 8Knot** with two new visualizations that provide deeper insights into **contributor engagement and retention** across open source repositories. 
 
-The focus of our project was on building **actionable, insightful, and visually intuitive tools** to help open source maintainers identify:
-1. **How contributors move through different stages of involvement** (from first-time contributors to long-term maintainers).
-2. **Where drop-offs occur in the contribution journey** and what factors might influence them.
-3. **Which activities contributors are participating in most frequently** (e.g., code commits, issue discussions, PR reviews).
+Contributor retention is a key health metric for any open source project. Understanding **where contributors start, how they progress, and why they drop off** helps maintainers build better onboarding, engagement, and recognition strategies.
+
+This project built **actionable, data-driven visualizations** by leveraging **Augur’s metrics data pipeline** and integrating it with 8Knot’s visualization interface.
+
+The key objectives were to:
+1. **Map contributor lifecycle stages** (from first-time contributors to core maintainers).
+2. **Identify drop-off points** in contributor progression.
+3. **Highlight contributor activity distribution** across different contribution types.
+
+---
+
+## Technical Implementation
+
+The implementation involved **three major components**: data extraction, backend integration, and frontend visualization.
+
+### 1. Data Extraction (Augur Queries)
+
+We wrote **SQL queries integrated with Augur’s worker framework** to fetch contributor activity metrics across different levels. These queries used Augur’s existing data tables (e.g., `contributor_engagement`, `issues`, `pull_requests`) and derived:
+
+- **Levels for the funnel:**
+  - Newcomers
+  - Regular Contributors
+  - Core Contributors
+
+- **Activities for the radar:**
+  - Pull Request Openers
+  - Issue Creators
+  - Pull Request Commenters
+  - Pull Request Mergers
+
+Each level was computed based on **temporal engagement, contribution type counts, and repository scope** (filtered using `repo_id` sets defined by the organization or group).
+
+The SQL was integrated into a Celery worker to asynchronously fetch and cache data for selected repositories.
+
+### 2. Backend Integration
+
+- Implemented a **Celery-based caching mechanism** to ensure that the visualizations did not overload the database on repeated page loads.
+- Used **cache management APIs (`cache_facade`)** to check uncached repositories and trigger background jobs.
+- Created **new query modules** (`contributors_query.py`) specifically for these visualizations.
+
+### 3. Frontend Visualization (8Knot)
+
+- Built interactive dashboards using **Dash (Plotly)** and **Bootstrap components**.
+- Designed a **funnel chart** with dual layers (Contributors and Drop-offs).
+- Designed a **radar chart** with polar coordinates to visualize contributor activity dimensions.
 
 ---
 
@@ -21,57 +62,56 @@ The focus of our project was on building **actionable, insightful, and visually 
 
 ### 1. Funnel Chart – Contributors and Drop-offs
 
-The funnel chart visualizes the **different stages of contributor engagement** in a project. It is divided into two complementary sections:
+The funnel chart visualizes the **stages of contributor engagement** in a project. It is divided into two complementary views:
 
-- **Contributors Funnel:** Displays the number of contributors at each stage of involvement:
-  - **Newcomers:** Contributors who recently made their first activity (e.g., commenting, opening an issue, or making a PR).
-  - **Regular Contributors:** Those who consistently participate over a period of time.
-  - **Frequent Contributors:** Members with sustained contributions (PRs, commits, code reviews).
-  - **Core Maintainers:** Contributors who take on significant roles in managing the project.
+- **Contributors Funnel:** Displays how many contributors exist at each level.
+- **Drop-offs Funnel:** Highlights how many contributors fail to progress between stages.
 
-- **Drop-offs Funnel:** Highlights where contributors tend to **disengage or stop contributing** along their journey. This helps maintainers identify bottlenecks in onboarding or engagement processes.
+Levels used:
+- **Newcomers:** First-time contributors who recently made their initial activity.
+- **Regular Contributors:** Contributors with consistent but moderate engagement.
+- **Core Contributors:** Key maintainers or highly active long-term members.
 
-The funnel chart thus provides a **clear, stage-wise representation of contributor flow**, enabling community managers to target specific levels for improvement.
+This visualization allows maintainers to **pinpoint retention bottlenecks and improve contributor flow**.
 
 ---
 
 ### 2. Radar Chart – Contributor Activities Breakdown
 
-The radar chart displays the **distribution of contributor activities** across different categories, giving a multi-dimensional view of how contributors interact with the project. Categories include:
+The radar chart shows the **distribution of contributor activities** across multiple dimensions:
 
-- **Pull Requests Created**
-- **Pull Requests Reviewed**
-- **Issues Opened**
-- **Issues Closed**
-- **Comments on PRs and Issues**
-- **Code Commits**
+- **Pull Request Openers**
+- **Issues Creators**
+- **Pull Request Commenters**
+- **Pull Request Mergers**
 
-Each axis of the radar chart corresponds to one type of activity, and the data plotted shows **which areas contributors are most involved in and which are lacking attention**. This visualization helps project maintainers balance participation and spot underrepresented activities.
+This multi-axis chart helps identify **which contribution types dominate participation** and where there is room for growth.
 
 ---
 
 ## Key Outcomes
 
-- Developed **two interactive visualizations (Funnel & Radar) integrated into 8Knot**, making it easier to analyze contributor engagement patterns.
-- Enhanced the **decision-making ability of project maintainers** by identifying drop-off points and activity imbalances.
-- Improved **onboarding strategy insights** by showcasing how newcomers transition (or fail to transition) into regular contributors.
+- Delivered **two new interactive visualizations integrated into 8Knot**.
+- Created **modular Augur queries** that can be reused in future analytics.
+- Improved **community managers' ability to analyze retention** and **visualize contributor diversity**.
+- Provided a **framework for future contributor journey analytics** in CHAOSS.
 
 ---
 
 ## Challenges Faced
 
-- Ensuring **data accuracy and consistency** across different repositories with varying activity structures.
-- Designing **visualizations that were both intuitive and detailed**, balancing aesthetics with data density.
-- Coordinating efforts as two GSoC contributors working on similar parts of the same project.
+- Aligning different **data schemas and ensuring query consistency** across multiple repositories.
+- Handling **asynchronous data fetching with caching** to avoid performance bottlenecks.
+- Coordinating between **two GSoC contributors working on interconnected parts** of the same project.
 
 ---
 
 ## Acknowledgments
 
 We would like to thank:
-- **Mentors and the CHAOSS community** for their guidance and feedback.
-- Google Summer of Code for providing this platform.
-- Everyone who tested, reviewed, and provided insights during the project.
+- **Our mentors and the CHAOSS community** for their continuous guidance.
+- Google Summer of Code for making this contribution possible.
+- Everyone who tested, reviewed, and provided feedback throughout the project.
 
 ---
 
@@ -84,8 +124,14 @@ We would like to thank:
 
 ## Links
 
-- **Project Repository:** [CHAOSS 8Knot](https://github.com/chaoss/8knot), [CHAOSS AUGUR](https://github.com/chaoss/augur)
-- **Pull Requests:** [Augur](https://github.com/chaoss/augur/pull/3213), [8kNOT](https://github.com/oss-aspen/8Knot/pull/914)
+- **Project Repositories:**  
+  - [CHAOSS 8Knot](https://github.com/chaoss/8knot)  
+  - [CHAOSS Augur](https://github.com/chaoss/augur)  
+
+- **Pull Requests:**  
+  - [Augur PR](https://github.com/chaoss/augur/pull/3213)  
+  - [8Knot PR](https://github.com/oss-aspen/8Knot/pull/914)  
+
 - **GSoC Organization:** [CHAOSS](https://chaoss.community/)
 
 ---
