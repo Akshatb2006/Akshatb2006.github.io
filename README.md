@@ -1,7 +1,7 @@
 # Google Summer of Code 2025 – Final Report
 
 **Co-authored by:**  
-- [Akshat Baranwal](https://github.com/AkshatBaranwal)  
+- [Akshat Baranwal](https://github.com/akshatb2006)  
 - [Asish Kumar](https://github.com/officialasishkumar)  
 
 ---
@@ -124,7 +124,7 @@ We would like to thank:
 
 ## Co-Authors
 
-- [Akshat Baranwal](https://github.com/AkshatBaranwal)  
+- [Akshat Baranwal](https://github.com/akshatb2006)  
 - [Asish Kumar](https://github.com/officialasishkumar)  
 
 ---
